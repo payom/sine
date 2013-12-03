@@ -47,6 +47,13 @@ scheme based on binary scaling. The assumed domain and image is $[0, \frac{\pi}{
 respectively. These ranges are discretized to an integer between $0$ and $255$.
 
 \section{Lookup Table Implementation}
+The $sin$ lookup table is a NOR-NOR PLA with 8-bit input and output. The design process for this
+implementation was straightforward. The decimal and binary representations of the 256 angles and
+$sin$ results were calculated in an Excel spreadsheet and exported to a CSV file. A simple Python
+script was written to convert the CSV file into a Verilog \texttt{casez} statement. The schematic
+and layout, shown in Figure \ref{lut}, were obtained from the PLA generator and tweaked in Electric
+to pass DRC. Figure \ref{mips_lut} is the final layout after the lookup table was mirrored vertically
+and wired up to the datapath.
 
 \begin{figure}[h]
 \centering
