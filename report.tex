@@ -32,6 +32,16 @@ The x87 floating-point unit in the IA-32 architecture supports instructions like
 and \texttt{fsincos}. Likewise, graphics processing units and digital signal processors
 provide dedicated logic for trigonometric operations.
 
+Lookup tables based on ROMs and PLAs are the most common approach for implementing $sin$
+in hardware. They are often coupled with approximation techniques like interpolation to
+achieve adequate precision while reducing transistor count. An alternative method that
+offers better precision at the expense of speed is the Taylor series expansion. Finally,
+the CORDIC (for Coordinate Rotation Digital Computer) algorithm is desirable in embedded
+systems without a multiplier, since it only requires adders, shifters and lookup tables.
+
+In this report, we investigate the design and implementation of a $sin$ functional block for
+an 8-bit MIPS processor, using the first two aforementioned approaches.
+
 \section{Lookup Table Implementation}
 
 \begin{figure}[h]
