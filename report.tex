@@ -38,9 +38,13 @@ achieve adequate precision while reducing transistor count. An alternative metho
 offers better precision at the expense of speed is the Taylor series expansion. Finally,
 the CORDIC (for Coordinate Rotation Digital Computer) algorithm is desirable in embedded
 systems without a multiplier, since it only requires adders, shifters and lookup tables.
-
 In this report, we investigate the design and implementation of a $sin$ functional block for
 an 8-bit MIPS processor, using the first two aforementioned approaches.
+
+In practice, $sin$ blocks usually operate on 32-bit IEEE 754 floating-point numbers. However,
+since the MIPS core has 8-bit registers and integer operations only, we opted for a custom encoding
+scheme based on binary scaling. The assumed domain and image is $[0, \frac{\pi}{2}]$ and $[0, 1]$,
+respectively. These ranges are discretized to an integer between $0$ and $255$.
 
 \section{Lookup Table Implementation}
 
