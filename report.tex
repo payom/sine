@@ -153,5 +153,5 @@ As implemented the MIPS core could accept many more functional blocks similar to
 Finally, while the functional implementation operates on an 8-bit number it is possible to extend functionality to 16 bits as both \texttt{srcA} and \texttt{srcB} are available as inputs to the ALU. It would also be possible to extend the output to 16 bits however this would require modifying the core state machine as it would require two write cycles instead to the single cycle R-type operations allow.
 
 \section{Conclusion}
-
+In conclusion, two methods to compute the $sin$ function have been implemented, integrated into the MIPS core and functionally validated, one using a look-up table PLA another using a mathematical Taylor series expansion. The block's operation relies on a custom input and output encoding which requires the programmer to validate that the input data is as intended and to perform post-processing operations on the output as required. For an 8-bit wide implementation the LUT implementation performs best while maintaining the smallest area however as bus width increases the Taylor series implementation becomes more advantageous area-wise.
 \end{document}
